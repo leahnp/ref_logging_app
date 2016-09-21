@@ -46,9 +46,20 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
 }
 
 func levels(w http.ResponseWriter, r *http.Request) {
-    // hash or array with levels and messages 
+    // map with levels and messages 
+    var levels map[string]string
+    levels = make(map[string]string)
+
+    levels["Fatal"] = "We're going doooowwwwnnnnn!!!!!!"
+    levels["Panic"] = "This parachute is a napsack!"
+    levels["Error"] = "Negatory...does not compute."
+    levels["Warn"] = "Hey buddy - think again!"
+    levels["Debug"] = "Dude. Get to work."
+    levels["Trace"] = "Happy hunting."
 
     // randomizer to pick random log
+    // fmt.Printf(levels)
+    fmt.Printf("%s", levels)
 
     // print log to file, stdout and stderr
 }
@@ -56,5 +67,6 @@ func levels(w http.ResponseWriter, r *http.Request) {
 func main() {
     http.HandleFunc("/", index)
     http.HandleFunc("/stack_traces", stack_traces)
+    http.HandleFunc("/levels", levels)
     http.ListenAndServe(":8080", nil)
 }
