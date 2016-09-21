@@ -1,0 +1,605 @@
+hello world2016/09/21 09:50:00 http: panic serving [::1]:62369: open /var/log/reference-logging: permission denied
+goroutine 20 [running]:
+net/http.(*conn).serve.func1(0xc42007c280)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010660)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010660)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42007c280, 0x48a720, 0xc420078480)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62370: open /var/log/reference-logging: permission denied
+goroutine 3 [running]:
+net/http.(*conn).serve.func1(0xc42012e000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010720)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010720)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201385b0, 0xc420132000)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e000, 0x48a720, 0xc420014240)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62371: open /var/log/reference-logging: permission denied
+goroutine 5 [running]:
+net/http.(*conn).serve.func1(0xc42012e680)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010840)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010840)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138680, 0xc4201321e0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e680, 0x48a720, 0xc420014700)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62372: open /var/log/reference-logging: permission denied
+goroutine 6 [running]:
+net/http.(*conn).serve.func1(0xc42012e880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010960)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010960)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138750, 0xc4201322d0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e880, 0x48a720, 0xc420014880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:05 http: panic serving [::1]:62377: open /var/log/reference-logging: permission denied
+goroutine 7 [running]:
+net/http.(*conn).serve.func1(0xc42012ea80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010a80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010a80)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138820, 0xc4201323c0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ea80, 0x48a720, 0xc420014a00)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:35 http: panic serving [::1]:62390: open /var/log/reference-logging: permission denied
+goroutine 8 [running]:
+net/http.(*conn).serve.func1(0xc42012ec80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010ba0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010ba0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ec80, 0x48a720, 0xc420014b80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+^C2016/09/21 09:50:00 http: panic serving [::1]:62369: open /var/log/reference-logging: permission denied
+goroutine 20 [running]:
+net/http.(*conn).serve.func1(0xc42007c280)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010660)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010660)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42007c280, 0x48a720, 0xc420078480)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62370: open /var/log/reference-logging: permission denied
+goroutine 3 [running]:
+net/http.(*conn).serve.func1(0xc42012e000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010720)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010720)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201385b0, 0xc420132000)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e000, 0x48a720, 0xc420014240)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62371: open /var/log/reference-logging: permission denied
+goroutine 5 [running]:
+net/http.(*conn).serve.func1(0xc42012e680)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010840)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010840)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138680, 0xc4201321e0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e680, 0x48a720, 0xc420014700)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62372: open /var/log/reference-logging: permission denied
+goroutine 6 [running]:
+net/http.(*conn).serve.func1(0xc42012e880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010960)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010960)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138750, 0xc4201322d0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e880, 0x48a720, 0xc420014880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:05 http: panic serving [::1]:62377: open /var/log/reference-logging: permission denied
+goroutine 7 [running]:
+net/http.(*conn).serve.func1(0xc42012ea80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010a80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010a80)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138820, 0xc4201323c0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ea80, 0x48a720, 0xc420014a00)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:35 http: panic serving [::1]:62390: open /var/log/reference-logging: permission denied
+goroutine 8 [running]:
+net/http.(*conn).serve.func1(0xc42012ec80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010ba0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010ba0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ec80, 0x48a720, 0xc420014b80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+^C2016/09/21 09:50:00 http: panic serving [::1]:62369: open /var/log/reference-logging: permission denied
+goroutine 20 [running]:
+net/http.(*conn).serve.func1(0xc42007c280)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010660)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010660)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42007c280, 0x48a720, 0xc420078480)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62370: open /var/log/reference-logging: permission denied
+goroutine 3 [running]:
+net/http.(*conn).serve.func1(0xc42012e000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010720)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010720)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201385b0, 0xc420132000)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e000, 0x48a720, 0xc420014240)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62371: open /var/log/reference-logging: permission denied
+goroutine 5 [running]:
+net/http.(*conn).serve.func1(0xc42012e680)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010840)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010840)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138680, 0xc4201321e0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e680, 0x48a720, 0xc420014700)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62372: open /var/log/reference-logging: permission denied
+goroutine 6 [running]:
+net/http.(*conn).serve.func1(0xc42012e880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010960)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010960)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138750, 0xc4201322d0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e880, 0x48a720, 0xc420014880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:05 http: panic serving [::1]:62377: open /var/log/reference-logging: permission denied
+goroutine 7 [running]:
+net/http.(*conn).serve.func1(0xc42012ea80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010a80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010a80)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138820, 0xc4201323c0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ea80, 0x48a720, 0xc420014a00)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:35 http: panic serving [::1]:62390: open /var/log/reference-logging: permission denied
+goroutine 8 [running]:
+net/http.(*conn).serve.func1(0xc42012ec80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010ba0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010ba0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ec80, 0x48a720, 0xc420014b80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+^C
+2016/09/21 09:50:00 http: panic serving [::1]:62369: open /var/log/reference-logging: permission denied
+goroutine 20 [running]:
+net/http.(*conn).serve.func1(0xc42007c280)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010660)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010660)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42007c280, 0x48a720, 0xc420078480)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62370: open /var/log/reference-logging: permission denied
+goroutine 3 [running]:
+net/http.(*conn).serve.func1(0xc42012e000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010720)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010720)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201385b0, 0xc420132000)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e000, 0x48a720, 0xc420014240)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62371: open /var/log/reference-logging: permission denied
+goroutine 5 [running]:
+net/http.(*conn).serve.func1(0xc42012e680)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010840)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010840)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138680, 0xc4201321e0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e680, 0x48a720, 0xc420014700)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62372: open /var/log/reference-logging: permission denied
+goroutine 6 [running]:
+net/http.(*conn).serve.func1(0xc42012e880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010960)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010960)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138750, 0xc4201322d0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e880, 0x48a720, 0xc420014880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:05 http: panic serving [::1]:62377: open /var/log/reference-logging: permission denied
+goroutine 7 [running]:
+net/http.(*conn).serve.func1(0xc42012ea80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010a80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010a80)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138820, 0xc4201323c0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ea80, 0x48a720, 0xc420014a00)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:35 http: panic serving [::1]:62390: open /var/log/reference-logging: permission denied
+goroutine 8 [running]:
+net/http.(*conn).serve.func1(0xc42012ec80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010ba0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010ba0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ec80, 0x48a720, 0xc420014b80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+^C
+
+
+2016/09/21 09:50:00 http: panic serving [::1]:62369: open /var/log/reference-logging: permission denied
+goroutine 20 [running]:
+net/http.(*conn).serve.func1(0xc42007c280)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010660)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010660)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201384e0, 0xc4201320f0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42007c280, 0x48a720, 0xc420078480)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62370: open /var/log/reference-logging: permission denied
+goroutine 3 [running]:
+net/http.(*conn).serve.func1(0xc42012e000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010720)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010720)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201385b0, 0xc420132000)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201385b0, 0xc420132000)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e000, 0x48a720, 0xc420014240)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62371: open /var/log/reference-logging: permission denied
+goroutine 5 [running]:
+net/http.(*conn).serve.func1(0xc42012e680)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010840)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010840)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138680, 0xc4201321e0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138680, 0xc4201321e0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e680, 0x48a720, 0xc420014700)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:00 http: panic serving [::1]:62372: open /var/log/reference-logging: permission denied
+goroutine 6 [running]:
+net/http.(*conn).serve.func1(0xc42012e880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010960)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010960)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138750, 0xc4201322d0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138750, 0xc4201322d0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012e880, 0x48a720, 0xc420014880)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:05 http: panic serving [::1]:62377: open /var/log/reference-logging: permission denied
+goroutine 7 [running]:
+net/http.(*conn).serve.func1(0xc42012ea80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010a80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010a80)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc420138820, 0xc4201323c0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc420138820, 0xc4201323c0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ea80, 0x48a720, 0xc420014a00)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+2016/09/21 09:50:35 http: panic serving [::1]:62390: open /var/log/reference-logging: permission denied
+goroutine 8 [running]:
+net/http.(*conn).serve.func1(0xc42012ec80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1491 +0x12a
+panic(0x2d0720, 0xc420010ba0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/runtime/panic.go:458 +0x243
+main.check(0x4866e0, 0xc420010ba0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:14 +0x5c
+main.stack_traces(0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /Users/lpetersen/Samsung/ref_logging_app/log_app.go:27 +0x9b
+net/http.HandlerFunc.ServeHTTP(0x3540c0, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1726 +0x44
+net/http.(*ServeMux).ServeHTTP(0x4a9a60, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2022 +0x7f
+net/http.serverHandler.ServeHTTP(0xc42007c200, 0x48a120, 0xc4201388f0, 0xc4201324b0)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2202 +0x7d
+net/http.(*conn).serve(0xc42012ec80, 0x48a720, 0xc420014b80)
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:1579 +0x4b7
+created by net/http.(*Server).Serve
+    /usr/local/Cellar/go/1.7.1/libexec/src/net/http/server.go:2293 +0x44d
+^C
