@@ -1,13 +1,16 @@
 package main
 
 import (
-    // "io"
+    "io"
     "net/http"
     "html/template"
     "fmt"
     "io/ioutil"
     "os"
     "math/rand"
+    // "bytes"
+    "log"
+    // "strings"
 )
 
 func check(e error) {
@@ -22,7 +25,7 @@ func index(w http.ResponseWriter, r *http.Request) {
     t.Execute(w, "templates/index.html")
 }
 
-func stack_traces(w http.ResponseWriter, r *http.Request) {
+func stack_traces(w http.ResponseWriter, r *http.Request, language string) {
     // file contents as string
     trace, err := ioutil.ReadFile("models/go_stack_trace")
     check(err)
@@ -47,21 +50,28 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
 }
 
 func levels(w http.ResponseWriter, r *http.Request) {
+
     // array of levels and level messages
     var levels_array = [6][2]string{ 
-                {"Fatal","We're going doooowwwwnnnnn!!!!!!"}, 
-                {"Panic","This parachute is a napsack!"}, 
-                {"Error","Negatory...does not compute."}, 
-                {"Warn","Hey buddy - think again!"},
-                {"Debug","Dude. Get to work."},
-                {"Trace","Happy hunting."},
+                {"Fatal", "We're going doooowwwwnnnnn!!!!!!"}, 
+                {"Panic", "This parachute is a napsack!"}, 
+                {"Error", "Negatory...does not compute."}, 
+                {"Warn", "Hey buddy - think again!"},
+                {"Debug", "Dude. Get to work."},
+                {"Trace", "Happy hunting."},
             }
 
-    // randomizer to pick random log
     message := levels_array[rand.Intn(len(levels_array))]
-    fmt.Println(message)
 
-    // print log to file, stdout and stderr
+
+    f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)
+    check(err)
+    defer f.Close()
+
+    log.SetOutput(io.MultiWriter(f, os.Stdout))
+
+    // print log with level and message
+    // log.Println("[" + message[0] + "] " + message[1])
     http.Redirect(w, r, "/", http.StatusFound)
 }
 
