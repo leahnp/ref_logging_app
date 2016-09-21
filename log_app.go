@@ -7,6 +7,7 @@ import (
     "fmt"
     "io/ioutil"
     "os"
+    "math/rand"
 )
 
 func check(e error) {
@@ -28,7 +29,7 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
     // convert trace to string
     str := string(trace)
 
-    f, err := os.OpenFile("var/log/reference-logging", os.O_APPEND|os.O_WRONLY, 0600)
+    f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
     check(err)
 
     defer f.Close()
@@ -46,22 +47,22 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
 }
 
 func levels(w http.ResponseWriter, r *http.Request) {
-    // map with levels and messages 
-    var levels map[string]string
-    levels = make(map[string]string)
-
-    levels["Fatal"] = "We're going doooowwwwnnnnn!!!!!!"
-    levels["Panic"] = "This parachute is a napsack!"
-    levels["Error"] = "Negatory...does not compute."
-    levels["Warn"] = "Hey buddy - think again!"
-    levels["Debug"] = "Dude. Get to work."
-    levels["Trace"] = "Happy hunting."
+    // array of levels and level messages
+    var levels_array = [6][2]string{ 
+                {"Fatal","We're going doooowwwwnnnnn!!!!!!"}, 
+                {"Panic","This parachute is a napsack!"}, 
+                {"Error","Negatory...does not compute."}, 
+                {"Warn","Hey buddy - think again!"},
+                {"Debug","Dude. Get to work."},
+                {"Trace","Happy hunting."},
+            }
 
     // randomizer to pick random log
-    // fmt.Printf(levels)
-    fmt.Printf("%s", levels)
+    message := levels_array[rand.Intn(len(levels_array))]
+    fmt.Println(message)
 
     // print log to file, stdout and stderr
+    http.Redirect(w, r, "/", http.StatusFound)
 }
 
 func main() {
