@@ -46,7 +46,11 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
 }
 
 func levels(w http.ResponseWriter, r *http.Request) {
-    
+    // hash or array with levels and messages 
+
+    // randomizer to pick random log
+
+    // print log to file, stdout and stderr
 }
 
 func main() {
