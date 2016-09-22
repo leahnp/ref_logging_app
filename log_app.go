@@ -82,40 +82,29 @@ func loop(filepath string) (files []string) {
 
 // currently only returns go stack trace
 func stack_traces(w http.ResponseWriter, r *http.Request) {
-    // TODO get array of file names in model and regex for "stack"
-    process_file("models/go_stack_trace")
+    // get array of file names loop
+    files := loop("models")
+
+    stacks := []string{}
+    // iterate over file names  
+    for _, file := range files {
+        // process file include "stack" keyword
+        r, _ := regexp.Compile("stack")
+        if r.FindStringSubmatch(file) != nil {
+            stacks = append(stacks, file)
+        }        
+    }
+
+    // process files 
+    for _, file := range stacks {
+        process_file("models/" + file)
+    }
 
     http.Redirect(w, r, "/", http.StatusFound)
 }
 
 // prints log with random level to Stdout Stderr and reference-logging
 func levels(w http.ResponseWriter, r *http.Request) {
-    // array of levels and level messages
-    // var levels_array = [6][2]string{ 
-    //             {"Fatal", "We're going doooowwwwnnnnn!!!!!!"}, 
-    //             {"Panic", "This parachute is a napsack!"}, 
-    //             {"Error", "Negatory...does not compute."}, 
-    //             {"Warn", "Hey buddy - think again!"},
-    //             {"Debug", "Dude. Get to work."},
-    //             {"Trace", "Happy hunting."},
-    //         }
-
-    // // picks random level and message
-    // message := levels_array[rand.Intn(len(levels_array))]
-
-    // // opens reference-logging file
-    // f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)
-    // check(err)
-
-    // defer f.Close()
-
-    // // sets output to print to file, stdout, stderr
-    // log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
-
-    // // print log with level and message
-    // log.Println("[" + message[0] + "] " + message[1])
-
-
     // get array of file names loop
     files := loop("models")
 
@@ -162,8 +151,18 @@ func doEvery(d time.Duration, f func(time.Time)) {
 }
 
 // reoccuring message
-func ahoy(t time.Time) {
-    log.Println("Ahoy.")
+func random_message(t time.Time) {
+    // log.Println("Ahoy.")
+    // get array of file names loop
+    files := loop("models")
+    // process files 
+    for _, file := range files {
+        process_file("models/" + file)
+        // fmt.Println(file)
+    }
+
+    // http.Redirect(w, r, "/", http.StatusFound)
+
 }
 
 func main() {
@@ -172,6 +171,6 @@ func main() {
     http.HandleFunc("/levels", levels)
     http.HandleFunc("/batch", batch)
     // TODO this blocks the rest of the website
-    // doEvery(1000*time.Millisecond, ahoy)
+    doEvery(1000*time.Millisecond, random_message)
     http.ListenAndServe(":8080", nil)
 }
