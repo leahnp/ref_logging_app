@@ -8,31 +8,32 @@ import (
     "io/ioutil"
     "os"
     "math/rand"
-    // "bytes"
     "log"
-    // "strings"
     "time"
     "strconv"
 )
 
+// check error function 
 func check(e error) {
     if e != nil {
         panic(e)
     }
 }
 
+// index function 
 func index(w http.ResponseWriter, r *http.Request) {
     t, _ := template.ParseFiles("templates/index.html")
     t.Execute(w, "templates/index.html")
+    loop("./models")
 }
 
-// currently only returns go stack trace
-func stack_traces(w http.ResponseWriter, r *http.Request) {
+// take in file, write to logs and Stdout and Stderr
+func process_file(file string) {
     // file contents as string
-    trace, err := ioutil.ReadFile("models/go_stack_trace")
+    content, err := ioutil.ReadFile(file)
     check(err)
-    // convert trace to string
-    str := string(trace)
+    // convert log content to string
+    str := string(content)
 
     f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
     check(err)
@@ -43,10 +44,36 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
         panic(err)
     }
 
-    // print stack traces to stdout & stderr
-    fmt.Printf(str)
-    fmt.Fprintln(os.Stderr, "hello world")
+    log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
+    log.Println(str)
+}
 
+// function to loop through files in directory, return slice of file names
+func loop(filepath string) (files []string) {
+    dirname := filepath
+    d, err := os.Open(dirname)
+    check(err)
+
+    defer d.Close()
+
+    fi, err := d.Readdir(-1)
+    check(err)
+
+    slice := make([]string, 3)
+    for _, fi := range fi {
+        if fi.Mode().IsRegular() {
+            // fmt.Println(fi.Name())
+            file := string(fi.Name())
+            slice = append(slice, file)
+        }
+    }
+    return slice
+}
+
+// currently only returns go stack trace
+func stack_traces(w http.ResponseWriter, r *http.Request) {
+    // TODO get array of file names in model and regex for "stack"
+    process_file("models/go_stack_trace")
     http.Redirect(w, r, "/", http.StatusFound)
 }
 
@@ -89,24 +116,7 @@ func batch(w http.ResponseWriter, r *http.Request) {
 
     // send num number of logs
     for i := 0; i < num; i++ {
-        // file contents as string
-        trace, err := ioutil.ReadFile("models/levels")
-        check(err)
-        // convert trace to string
-        str := string(trace)
-
-        f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
-        check(err)
-
-        defer f.Close()
-
-        if _, err = f.WriteString(str + "\n"); err != nil {
-            panic(err)
-        }
-
-        // print stack traces to stdout & stderr
-        fmt.Printf(str)
-        fmt.Fprintln(os.Stderr, "hello world")
+        process_file("models/go_stack_trace")
 
         http.Redirect(w, r, "/", http.StatusFound)
     }
