@@ -1,0 +1,2 @@
+const nihongo = "日本語"
+sample = "\xbd\xb2\x3d\xbc\x20\xe2\x8c\x98"
