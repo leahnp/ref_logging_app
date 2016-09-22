@@ -12,6 +12,7 @@ import (
     "log"
     // "strings"
     "time"
+    "strconv"
 )
 
 func check(e error) {
@@ -81,10 +82,33 @@ func levels(w http.ResponseWriter, r *http.Request) {
 
 // send batch logs all at once
 func batch(w http.ResponseWriter, r *http.Request) {
-    num := r.URL.Query().Get("num")
+    str_num := r.URL.Query().Get("num")
+    // convert num string to int
+    num, err := strconv.Atoi(str_num)
+    check(err)
 
+    // send num number of logs
     for i := 0; i < num; i++ {
-        fmt.Println("kwel")
+        // file contents as string
+        trace, err := ioutil.ReadFile("models/levels")
+        check(err)
+        // convert trace to string
+        str := string(trace)
+
+        f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
+        check(err)
+
+        defer f.Close()
+
+        if _, err = f.WriteString(str + "\n"); err != nil {
+            panic(err)
+        }
+
+        // print stack traces to stdout & stderr
+        fmt.Printf(str)
+        fmt.Fprintln(os.Stderr, "hello world")
+
+        http.Redirect(w, r, "/", http.StatusFound)
     }
 
     fmt.Println(num)
