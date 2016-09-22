@@ -7,11 +7,16 @@ import (
     "fmt"
     "io/ioutil"
     "os"
-    "math/rand"
+    // "math/rand"
     "log"
     "time"
     "strconv"
 )
+
+// const counter int
+// counter = 0
+// const counter = 0
+var counter int
 
 // check error function 
 func check(e error) {
@@ -24,7 +29,7 @@ func check(e error) {
 func index(w http.ResponseWriter, r *http.Request) {
     t, _ := template.ParseFiles("templates/index.html")
     t.Execute(w, "templates/index.html")
-    loop("./models")
+    // loop("./models")
 }
 
 // take in file, write to logs and Stdout and Stderr
@@ -32,20 +37,25 @@ func process_file(file string) {
     // file contents as string
     content, err := ioutil.ReadFile(file)
     check(err)
-    // convert log content to string
-    str := string(content)
+
+    // increment log counter
+    counter += 1
+
+    // convert log content to string and append counter
+    str := strconv.Itoa(counter) + ": " + string(content)
 
     f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
     check(err)
 
     defer f.Close()
 
-    if _, err = f.WriteString(str + "\n"); err != nil {
+    if _, err = f.WriteString(str + "\n\n"); err != nil {
         panic(err)
     }
 
     log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
     log.Println(str)
+
 }
 
 // function to loop through files in directory, return slice of file names
@@ -59,7 +69,8 @@ func loop(filepath string) (files []string) {
     fi, err := d.Readdir(-1)
     check(err)
 
-    slice := make([]string, 3)
+    // slice := make([]string, 3)
+    slice := []string{}
     for _, fi := range fi {
         if fi.Mode().IsRegular() {
             // fmt.Println(fi.Name())
@@ -74,40 +85,49 @@ func loop(filepath string) (files []string) {
 func stack_traces(w http.ResponseWriter, r *http.Request) {
     // TODO get array of file names in model and regex for "stack"
     process_file("models/go_stack_trace")
+
     http.Redirect(w, r, "/", http.StatusFound)
 }
 
 // prints log with random level to Stdout Stderr and reference-logging
 func levels(w http.ResponseWriter, r *http.Request) {
     // array of levels and level messages
-    var levels_array = [6][2]string{ 
-                {"Fatal", "We're going doooowwwwnnnnn!!!!!!"}, 
-                {"Panic", "This parachute is a napsack!"}, 
-                {"Error", "Negatory...does not compute."}, 
-                {"Warn", "Hey buddy - think again!"},
-                {"Debug", "Dude. Get to work."},
-                {"Trace", "Happy hunting."},
-            }
+    // var levels_array = [6][2]string{ 
+    //             {"Fatal", "We're going doooowwwwnnnnn!!!!!!"}, 
+    //             {"Panic", "This parachute is a napsack!"}, 
+    //             {"Error", "Negatory...does not compute."}, 
+    //             {"Warn", "Hey buddy - think again!"},
+    //             {"Debug", "Dude. Get to work."},
+    //             {"Trace", "Happy hunting."},
+    //         }
 
-    // picks random level and message
-    message := levels_array[rand.Intn(len(levels_array))]
+    // // picks random level and message
+    // message := levels_array[rand.Intn(len(levels_array))]
 
-    // opens reference-logging file
-    f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)
-    check(err)
+    // // opens reference-logging file
+    // f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)
+    // check(err)
 
-    defer f.Close()
+    // defer f.Close()
 
-    // sets output to print to file, stdout, stderr
-    log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
+    // // sets output to print to file, stdout, stderr
+    // log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
 
-    // print log with level and message
-    log.Println("[" + message[0] + "] " + message[1])
+    // // print log with level and message
+    // log.Println("[" + message[0] + "] " + message[1])
+
+
+    // get array of file names loop
+    files := loop("models")
+    fmt.Println(files[1])
+
+
+    // if file name includes level send to process file
 
     http.Redirect(w, r, "/", http.StatusFound)
 }
 
-// send batch logs all at once
+// send batch logs all at once (currently only stack traces)
 func batch(w http.ResponseWriter, r *http.Request) {
     str_num := r.URL.Query().Get("num")
     // convert num string to int
@@ -121,7 +141,6 @@ func batch(w http.ResponseWriter, r *http.Request) {
         http.Redirect(w, r, "/", http.StatusFound)
     }
 
-    fmt.Println(num)
     http.Redirect(w, r, "/", http.StatusFound)
 }
 
