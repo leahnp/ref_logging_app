@@ -4,18 +4,17 @@ import (
     "io"
     "net/http"
     "html/template"
-    "fmt"
+    // "fmt"
     "io/ioutil"
     "os"
     // "math/rand"
     "log"
     "time"
     "strconv"
+    "regexp"
 )
 
-// const counter int
-// counter = 0
-// const counter = 0
+// total log count
 var counter int
 
 // check error function 
@@ -119,10 +118,21 @@ func levels(w http.ResponseWriter, r *http.Request) {
 
     // get array of file names loop
     files := loop("models")
-    fmt.Println(files[1])
 
+    levels := []string{}
+    // iterate over file names  
+    for _, file := range files {
+        // process file include "level" keyword
+        r, _ := regexp.Compile("level")
+        if r.FindStringSubmatch(file) != nil {
+            levels = append(levels, file)
+        }        
+    }
 
-    // if file name includes level send to process file
+    // process files 
+    for _, file := range levels {
+        process_file("models/" + file)
+    }
 
     http.Redirect(w, r, "/", http.StatusFound)
 }
