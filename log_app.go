@@ -4,10 +4,10 @@ import (
     "io"
     "net/http"
     "html/template"
-    // "fmt"
+    "fmt"
     "io/ioutil"
     "os"
-    // "math/rand"
+    "math/rand"
     "log"
     "time"
     "strconv"
@@ -47,10 +47,6 @@ func process_file(file string) {
     check(err)
 
     defer f.Close()
-
-    if _, err = f.WriteString(str + "\n\n"); err != nil {
-        panic(err)
-    }
 
     log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
     log.Println(str)
@@ -119,9 +115,12 @@ func levels(w http.ResponseWriter, r *http.Request) {
     }
 
     // process files 
-    for _, file := range levels {
-        process_file("models/" + file)
-    }
+    // for _, file := range levels {
+    //     process_file("models/" + file)
+    // }
+
+    // process random file
+    process_file("models/" + levels[rand.Intn(len(levels))])
 
     http.Redirect(w, r, "/", http.StatusFound)
 }
@@ -133,11 +132,13 @@ func batch(w http.ResponseWriter, r *http.Request) {
     num, err := strconv.Atoi(str_num)
     check(err)
 
+    files := loop("models")
+    fmt.Println(files)
+
     // send num number of logs
     for i := 0; i < num; i++ {
-        process_file("models/go_stack_trace")
-
-        http.Redirect(w, r, "/", http.StatusFound)
+        // process one random file from all files in models
+        process_file("models/" + files[rand.Intn(len(files))])
     }
 
     http.Redirect(w, r, "/", http.StatusFound)
@@ -152,17 +153,13 @@ func doEvery(d time.Duration, f func(time.Time)) {
 
 // reoccuring message
 func random_message(t time.Time) {
-    // log.Println("Ahoy.")
     // get array of file names loop
     files := loop("models")
+
     // process files 
     for _, file := range files {
         process_file("models/" + file)
-        // fmt.Println(file)
     }
-
-    // http.Redirect(w, r, "/", http.StatusFound)
-
 }
 
 func main() {
@@ -170,7 +167,6 @@ func main() {
     http.HandleFunc("/stack_traces", stack_traces)
     http.HandleFunc("/levels", levels)
     http.HandleFunc("/batch", batch)
-    // TODO this blocks the rest of the website
-    doEvery(1000*time.Millisecond, random_message)
+    // go doEvery(1000*time.Millisecond, random_message)
     http.ListenAndServe(":8080", nil)
 }
