@@ -28,7 +28,6 @@ func check(e error) {
 func index(w http.ResponseWriter, r *http.Request) {
     t, _ := template.ParseFiles("templates/index.html")
     t.Execute(w, "templates/index.html")
-    // loop("./models")
 }
 
 // take in file, write to logs and Stdout and Stderr
@@ -43,17 +42,21 @@ func process_file(file string) {
     // convert log content to string and append counter
     str := strconv.Itoa(counter) + ": " + string(content)
 
-    f, err := os.OpenFile("var/log/reference-logging", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
+    f, err := os.OpenFile("var/log/reference-logging.txt", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
     check(err)
 
     defer f.Close()
+
+    // if _, err = f.WriteString(str + "\n"); err != nil {
+    //       panic(err)
+    //   }
 
     log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
     log.Println(str)
 
 }
 
-// function to loop through files in directory, return slice of file names
+// loop through files in directory, return slice of all file names
 func loop(filepath string) (files []string) {
     dirname := filepath
     d, err := os.Open(dirname)
@@ -64,11 +67,9 @@ func loop(filepath string) (files []string) {
     fi, err := d.Readdir(-1)
     check(err)
 
-    // slice := make([]string, 3)
     slice := []string{}
     for _, fi := range fi {
         if fi.Mode().IsRegular() {
-            // fmt.Println(fi.Name())
             file := string(fi.Name())
             slice = append(slice, file)
         }
@@ -91,10 +92,8 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
         }        
     }
 
-    // process files 
-    for _, file := range stacks {
-        process_file("models/" + file)
-    }
+    // process random file
+    process_file("models/" + stacks[rand.Intn(len(stacks))])
 
     http.Redirect(w, r, "/", http.StatusFound)
 }
@@ -113,11 +112,6 @@ func levels(w http.ResponseWriter, r *http.Request) {
             levels = append(levels, file)
         }        
     }
-
-    // process files 
-    // for _, file := range levels {
-    //     process_file("models/" + file)
-    // }
 
     // process random file
     process_file("models/" + levels[rand.Intn(len(levels))])
@@ -156,10 +150,8 @@ func random_message(t time.Time) {
     // get array of file names loop
     files := loop("models")
 
-    // process files 
-    for _, file := range files {
-        process_file("models/" + file)
-    }
+    // process random file
+    process_file("models/" + files[rand.Intn(len(files))])
 }
 
 func main() {
@@ -167,6 +159,6 @@ func main() {
     http.HandleFunc("/stack_traces", stack_traces)
     http.HandleFunc("/levels", levels)
     http.HandleFunc("/batch", batch)
-    // go doEvery(1000*time.Millisecond, random_message)
+    go doEvery(1000*time.Millisecond, random_message)
     http.ListenAndServe(":8080", nil)
 }
