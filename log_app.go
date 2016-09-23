@@ -27,8 +27,8 @@ func check(e error) {
 
 // index function 
 func index(w http.ResponseWriter, r *http.Request) {
-    t, _ := template.ParseFiles("templates/index.html")
-    t.Execute(w, "templates/index.html")
+    t, _ := template.ParseFiles("/templates/index.html")
+    t.Execute(w, "/templates/index.html")
 }
 
 // take in file, write to logs and Stdout and Stderr
@@ -43,7 +43,7 @@ func process_file(file string) {
     // convert log content to string and append counter
     str := strconv.Itoa(counter) + ": " + string(content)
 
-    f, err := os.OpenFile("var/log/reference-logging.txt", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
+    f, err := os.OpenFile("/var/log/reference-logging.txt", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
     check(err)
 
     defer f.Close()
@@ -77,7 +77,7 @@ func loop(filepath string) (files []string) {
 // currently only returns go stack trace
 func stack_traces(w http.ResponseWriter, r *http.Request) {
     // get array of file names loop
-    files := loop("models")
+    files := loop("/models")
 
     stacks := []string{}
     // iterate over file names  
@@ -90,7 +90,7 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
     }
 
     // process random file
-    process_file("models/" + stacks[rand.Intn(len(stacks))])
+    process_file("/models/" + stacks[rand.Intn(len(stacks))])
 
     http.Redirect(w, r, "/", http.StatusFound)
 }
@@ -98,7 +98,7 @@ func stack_traces(w http.ResponseWriter, r *http.Request) {
 // prints log with random level to Stdout Stderr and reference-logging
 func levels(w http.ResponseWriter, r *http.Request) {
     // get array of file names loop
-    files := loop("models")
+    files := loop("/models")
 
     levels := []string{}
     // iterate over file names  
@@ -111,7 +111,7 @@ func levels(w http.ResponseWriter, r *http.Request) {
     }
 
     // process random file
-    process_file("models/" + levels[rand.Intn(len(levels))])
+    process_file("/models/" + levels[rand.Intn(len(levels))])
 
     http.Redirect(w, r, "/", http.StatusFound)
 }
@@ -123,13 +123,13 @@ func batch(w http.ResponseWriter, r *http.Request) {
     num, err := strconv.Atoi(str_num)
     check(err)
 
-    files := loop("models")
+    files := loop("/models")
     fmt.Println(files)
 
     // send num number of logs
     for i := 0; i < num; i++ {
         // process one random file from all files in models
-        process_file("models/" + files[rand.Intn(len(files))])
+        process_file("/models/" + files[rand.Intn(len(files))])
     }
 
     http.Redirect(w, r, "/", http.StatusFound)
@@ -145,10 +145,10 @@ func doEvery(d time.Duration, f func(time.Time)) {
 // reoccuring message
 func random_message(t time.Time) {
     // get array of file names loop
-    files := loop("models")
+    files := loop("/models")
 
     // process random file
-    process_file("models/" + files[rand.Intn(len(files))])
+    process_file("/models/" + files[rand.Intn(len(files))])
 }
 
 func main() {
