@@ -2,6 +2,7 @@ FROM golang
 
 RUN mkdir var
 RUN mkdir var/log
+RUN mkdir models
 
 ADD log_app.go /
 ADD models/* /models/
