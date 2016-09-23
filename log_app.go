@@ -14,6 +14,7 @@ import (
     "regexp"
 )
 
+// TODO break out list of files into const array
 // total log count
 var counter int
 
@@ -46,10 +47,6 @@ func process_file(file string) {
     check(err)
 
     defer f.Close()
-
-    // if _, err = f.WriteString(str + "\n"); err != nil {
-    //       panic(err)
-    //   }
 
     log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
     log.Println(str)
