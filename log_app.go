@@ -43,7 +43,7 @@ func process_file(file string) {
     // convert log content to string and append counter
     str := strconv.Itoa(counter) + ": " + string(content)
 
-    f, err := os.OpenFile("/var/log/reference-logging.txt", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0600)
+    f, err := os.OpenFile("/var/log/reference-logging.txt", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0644)
     check(err)
 
     defer f.Close()
