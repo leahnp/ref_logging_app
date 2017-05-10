@@ -151,11 +151,29 @@ func random_message(t time.Time) {
     process_file("/models/" + files[rand.Intn(len(files))])
 }
 
+// take in file, write to logs and Stdout and Stderr
+func random_message_simple(t time.Time) {
+    content := "[ERROR]: PANIC This parachute is a napsack!"
+
+    // increment log counter
+    counter += 1
+
+    // convert log content to string and append counter
+    str := strconv.Itoa(counter) + ": " + string(content)
+
+    defer f.Close()
+
+    log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
+    log.Println(str)
+
+}
+
 func main() {
     http.HandleFunc("/", index)
     http.HandleFunc("/stack_traces", stack_traces)
     http.HandleFunc("/levels", levels)
     http.HandleFunc("/batch", batch)
     // go doEvery(1000*time.Millisecond, random_message)
+    go doEvery(time.Millisecond, random_message_simple)
     http.ListenAndServe(":8080", nil)
 }
