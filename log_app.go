@@ -156,6 +156,6 @@ func main() {
     http.HandleFunc("/stack_traces", stack_traces)
     http.HandleFunc("/levels", levels)
     http.HandleFunc("/batch", batch)
-    go doEvery(1000*time.Millisecond, random_message)
+    // go doEvery(1000*time.Millisecond, random_message)
     http.ListenAndServe(":8080", nil)
 }
