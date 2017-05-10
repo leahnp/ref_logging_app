@@ -161,9 +161,7 @@ func random_message_simple(t time.Time) {
     // convert log content to string and append counter
     str := strconv.Itoa(counter) + ": " + string(content)
 
-    defer f.Close()
-
-    log.SetOutput(io.MultiWriter(f, os.Stdout, os.Stderr))
+    log.SetOutput(io.MultiWriter(os.Stdout, os.Stderr))
     log.Println(str)
 
 }
