@@ -153,16 +153,21 @@ func random_message(t time.Time) {
 
 // take in file, write to logs and Stdout and Stderr
 func random_message_simple(t time.Time) {
-    content := "[ERROR]: PANIC This parachute is a napsack!"
+    i := 10
+    for i > 0 {
 
-    // increment log counter
-    counter += 1
+        content := "[ERROR]: PANIC This parachute is a napsack!"
 
-    // convert log content to string and append counter
-    str := strconv.Itoa(counter) + ": " + string(content)
+        // increment log counter
+        counter += 1
 
-    log.SetOutput(io.MultiWriter(os.Stdout, os.Stderr))
-    log.Println(str)
+        // convert log content to string and append counter
+        str := strconv.Itoa(counter) + ": " + string(content)
+
+        log.Println(str)
+        i--
+    }
+
 
 }
 
