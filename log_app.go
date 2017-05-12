@@ -153,7 +153,7 @@ func random_message(t time.Time) {
 
 // take in file, write to logs and Stdout and Stderr
 func random_message_simple(t time.Time) {
-    i := 10
+    i := 50
     for i > 0 {
 
         content := "[ERROR]: PANIC This parachute is a napsack!"
