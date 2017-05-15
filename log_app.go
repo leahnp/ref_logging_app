@@ -153,7 +153,7 @@ func random_message(t time.Time) {
 
 // take in file, write to logs and Stdout and Stderr
 func random_message_simple(t time.Time) {
-    i := 50
+    i := 100
     for i > 0 {
 
         content := "[ERROR]: PANIC This parachute is a napsack!"
@@ -176,7 +176,7 @@ func main() {
     http.HandleFunc("/stack_traces", stack_traces)
     http.HandleFunc("/levels", levels)
     http.HandleFunc("/batch", batch)
-    // go doEvery(1000*time.Millisecond, random_message)
-    go doEvery(time.Millisecond, random_message_simple)
+    go doEvery(1000*time.Millisecond, random_message)
+    // go doEvery(time.Millisecond, random_message_simple)
     http.ListenAndServe(":8080", nil)
 }
