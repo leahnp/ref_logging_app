@@ -165,8 +165,9 @@ func random_message_simple(t time.Time) {
         str := strconv.Itoa(counter) + ": " + string(content)
 
         log.Println(str)
+        i--
 
-
+    }
 
 }
 
