@@ -177,6 +177,6 @@ func main() {
     http.HandleFunc("/levels", levels)
     http.HandleFunc("/batch", batch)
     // go doEvery(1000*time.Millisecond, random_message)
-    go doEvery(time.Millisecond, random_message_simple)
+    // go doEvery(time.Millisecond, random_message_simple)
     http.ListenAndServe(":8080", nil)
 }
